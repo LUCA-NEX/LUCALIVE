@@ -9,6 +9,9 @@
 <a id="english-default"></a>
 
 ## English (default)
+**Tested:** douyu douyin huya
+
+
 
 **LUCALIVE** is a minimalist, ad-free website for watching live streams from many platforms in one place. A Python backend turns room links into playable URLs; a dark-themed Vue 3 + Element Plus frontend plays them in the browser—no separate app per platform.
 
@@ -70,6 +73,17 @@ If `backend/DouyinLiveRecorder` is empty, initialize the submodule:
 ```bash
 git submodule update --init --recursive
 ```
+
+#### Windows one-click start (.bat)
+
+Double-click `start_lucalive.bat` in the repository root.
+
+The script will:
+
+- open one terminal for the backend and run `cd backend` and `uvicorn app.main:app --reload --host 0.0.0.0 --port 8000`
+- open one terminal for the frontend and run `cd frontend` and `npm run dev`
+- wait for `http://127.0.0.1:5173`
+- open the site in your default browser
 
 #### 1. Start the backend (Terminal A)
 
@@ -192,7 +206,10 @@ MIT. Third-party licenses apply to dependencies. **[DouyinLiveRecorder](https://
 
 <a id="中文"></a>
 
+
 ## 中文
+**????** douyu douyin huya
+
 
 **LUCALIVE** 是一款极简、无广告的网站，用于在同一处观看多个平台的直播。Python 后端将直播间链接转换为可播放 URL；采用深色主题的 Vue 3 + Element Plus 前端在浏览器中播放，无需为各平台单独安装客户端。
 
@@ -255,7 +272,18 @@ cd LUCALIVE
 git submodule update --init --recursive
 ```
 
-#### 1. 启动后端（终端 A）
+#### Windows ?????.bat?
+
+???????? `start_lucalive.bat`?
+
+????
+
+- ????????????? `cd backend` ? `uvicorn app.main:app --reload --host 0.0.0.0 --port 8000`
+- ????????????? `cd frontend` ? `npm run dev`
+- ?? `http://127.0.0.1:5173` ???
+- ??????????
+
+#### 1. ??????? A?
 
 1. 打开终端并进入后端目录：
 
@@ -376,7 +404,10 @@ MIT。依赖项沿用各自许可证。**[DouyinLiveRecorder](https://github.com
 
 <a id="한국어"></a>
 
+
 ## 한국어
+**??? ??:** douyu douyin huya
+
 
 **LUCALIVE**는 광고 없는 미니멀 웹사이트로, 여러 플랫폼의 라이브를 한곳에서 시청합니다. Python 백엔드가 방송 URL을 재생 가능한 주소로 바꾸고, 다크 테마의 Vue 3 + Element Plus 프론트엔드가 브라우저에서 재생합니다. 플랫폼마다 별도 앱을 둘 필요가 없습니다.
 
@@ -439,7 +470,18 @@ cd LUCALIVE
 git submodule update --init --recursive
 ```
 
-#### 1. 백엔드 시작 (터미널 A)
+#### Windows ??? ?? (.bat)
+
+??? ???? `start_lucalive.bat` ? ???????.
+
+????? ??? ?????:
+
+- ? ????? ???? ?? `cd backend` ? `uvicorn app.main:app --reload --host 0.0.0.0 --port 8000` ? ??
+- ? ????? ?????? ?? `cd frontend` ? `npm run dev` ? ??
+- `http://127.0.0.1:5173` ? ?? ??? ??
+- ?? ????? ??? ??
+
+#### 1. ??? ?? (??? A)
 
 1. 터미널을 열고 백엔드 폴더로 이동:
 

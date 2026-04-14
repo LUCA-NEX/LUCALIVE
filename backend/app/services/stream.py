@@ -51,16 +51,17 @@ def _douyin_nested_urls(raw: dict) -> tuple[str, str]:
     return m3u8, flv
 
 
-def _extract_stream_url(raw: dict, is_live: bool) -> str:
+def _extract_stream_url(raw: dict, is_live: bool, platform: str) -> str:
     if not is_live:
         return ""
-    direct = (
-        raw.get("m3u8_url")
-        or raw.get("flv_url")
-        or raw.get("record_url")
-        or raw.get("live_url")
-        or raw.get("play_url")
+    # Huya's spider already selects a browser-friendly CDN/protocol in `record_url`.
+    # The first `m3u8_url` in the payload can stall in the web player.
+    direct_candidates = (
+        (raw.get("record_url"), raw.get("m3u8_url"), raw.get("flv_url"), raw.get("live_url"), raw.get("play_url"))
+        if platform == "huya"
+        else (raw.get("m3u8_url"), raw.get("flv_url"), raw.get("record_url"), raw.get("live_url"), raw.get("play_url"))
     )
+    direct = next((url for url in direct_candidates if isinstance(url, str) and url.strip()), "")
     if isinstance(direct, str) and direct.strip():
         return direct.strip()
     dm3, dflv = _douyin_nested_urls(raw)
@@ -90,7 +91,7 @@ def extract_stream_info(raw: dict) -> StreamInfo:
     if not isinstance(title, str):
         title = str(title) if title is not None else ""
     room_id = _room_id(raw)
-    stream_url = _extract_stream_url(raw, is_live)
+    stream_url = _extract_stream_url(raw, is_live, platform)
 
     return StreamInfo(
         platform=platform,
